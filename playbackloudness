@@ -1,0 +1,21 @@
+local soundName = "Sound"  -- Replace with the actual name of your sound object
+local soundvis = true
+local sizeCommandSent = false
+local speedCommandSent = false
+
+while soundvis do
+    local sound = game:GetService("Workspace").Terrain["_Game"].Folder:FindFirstChild(soundName)
+    local loud = sound and sound.PlaybackLoudness or 0
+    
+    if loud > 1 and not speedCommandSent then
+        game.Players:Chat("-speed 17")
+        speedCommandSent = true
+        sizeCommandSent = false
+    elseif loud < 1 and not sizeCommandSent then
+        game.Players:Chat("-speed 1")
+        sizeCommandSent = true
+        speedCommandSent = false
+    end
+    
+    wait()
+end
