@@ -8,11 +8,13 @@ while soundvis do
     local loud = sound and sound.PlaybackLoudness or 0
     
     if loud > 1 and not speedCommandSent then
-        game.Players:Chat("-speed 17")
+        game.Players:Chat("-speed 25")
+        game.Players:Chat("-offset 15")
         speedCommandSent = true
         sizeCommandSent = false
     elseif loud < 1 and not sizeCommandSent then
         game.Players:Chat("-speed 1")
+        game.Players:Chat("-offset 10")
         sizeCommandSent = true
         speedCommandSent = false
     end
